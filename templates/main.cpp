@@ -27,9 +27,26 @@ template <class Type> class Range {
         bool contains(const Type& value) const;
 };
 
+template <class Type> Range<Type>::Range(const Type& low, const Type& high) {
+    lo = low;
+    hi = high;
+}
+
 template <class Type> Range<Type>::Range(const Range<Type>& r2) {
     lo = r2.lo;
     hi = r2.hi;
+}
+
+template <class Type> Range<Type>::~Range() {
+    cout << "Destructor called" << endl;
+}
+
+template <class Type> bool Range<Type>::left(const Type& value) const {
+    return value < lo;
+}
+
+template <class Type> bool Range<Type>::right(const Type& value) const {
+    return value > hi;
 }
 
 template <class Type> Type Range<Type>::spread() const {
