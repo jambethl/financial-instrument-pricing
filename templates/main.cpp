@@ -60,6 +60,13 @@ template <class Type> bool Range<Type>::contains(const Type& t) const {
     return false;
 }
 
+template <class Any> void swapper(Any& first, Any& second) {
+    Any tmp = first;
+
+    first = second;
+    second = tmp;
+}
+
 
 int main() {
 
@@ -75,6 +82,14 @@ int main() {
 
     if (test1 == false && test2 == false && test3) {
         cout << "Everything OK\n";
+    }
+
+    int i = 10;
+    int j = -1435;
+    swapper(i, j);
+
+    if (j == 10 && i == -1435) {
+        cout << "Template function OK" << endl;
     }
     return 0;
 }
