@@ -67,6 +67,25 @@ template <class Any> void swapper(Any& first, Any& second) {
     second = tmp;
 }
 
+template <class N> N NormalFunction(const N&) const {
+    N A = 1.0/sqrt(2.0 * 3.1415);
+    return A * exp(-x*x*0.5);
+}
+
+template <class N> N cdfNormal(double x) const {
+    N a1 = 0.4361836;
+    N a2 = -0.1201676;
+    N a3 = 0.9372980;
+
+    N k = 1.0 / (1.0 + (0.33267 * x));
+
+    if (x >= 0.0) {
+        return 1.0 - n(x) * (a1*k + (a2*k*k) + (a3*k*k*k));
+    }
+
+    return 1.0 - cdfNormal(-x);
+}
+
 
 int main() {
 
