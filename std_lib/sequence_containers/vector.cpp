@@ -10,7 +10,7 @@ template <class T> void print(const vector<T>& l) {
     for (i = l.begin(); i != l.end(); ++i) {
         cout << *i << ",";
     }
-    cout << *i << "]\n";
+    cout << "]\n";
 }
 
 int main() {
